@@ -3,7 +3,7 @@ import sys
 import pandas as pd
 import pickle
 from src.logger import logging
-from src.exception import Custom_exception
+from src.exception import CustomException
 from src.constant import *
 from flask import request
 from src.utils.main_utils import MainUtils
@@ -27,9 +27,9 @@ class PredictionPipeline:
     def save_input_file(self) -> str:
         try:
             pred_file_input_dir = "pridiction_artifacts"
-            os.makedir(pred_file_input_dir, exist_ok=True)
+            os.makedirs(pred_file_input_dir, exist_ok=True)
 
-            input_csv_file = self.request["file"]
+            input_csv_file = self.request.files["file"]
 
             pred_file_path = os.path.join(pred_file_input_dir, input_csv_file.filename)
 
@@ -37,7 +37,7 @@ class PredictionPipeline:
             return pred_file_path
         
         except Exception as e:
-            raise Custom_exception(e,sys)
+            raise CustomException(e,sys)
         
     def predict(self,features):
 
@@ -52,7 +52,7 @@ class PredictionPipeline:
             return preds
         
         except Exception as e:
-            raise Custom_exception(e , sys)
+            raise CustomException(e , sys)
         
     def get_prediction_dataframe(self, input_dataframe_path)-> pd.DataFrame:
 
@@ -73,12 +73,12 @@ class PredictionPipeline:
 
             os.makedirs(self.predicion_pipeline_config.prediction_output_dirname , exist_ok=True)
 
-            input_dataframe.to_csv(self.predicion_pipeline_config.predicttion_file_path , index=False)
+            input_dataframe.to_csv(self.predicion_pipeline_config.prediction_file_path , index=False)
 
             logging.info("Prediction completed")
 
         except Exception as e:
-            raise Custom_exception(e,sys) from e
+            raise CustomException(e,sys) from e
         
     def run_pipeline(self):
 
@@ -90,4 +90,4 @@ class PredictionPipeline:
             return self.predicion_pipeline_config
         
         except Exception as e:
-            raise Custom_exception(e, sys)
+            raise CustomException(e, sys)

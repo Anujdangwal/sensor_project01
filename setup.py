@@ -18,6 +18,6 @@ setup(
     name ="fault detection",
     version = "0.0.1",
     author ="Anuj",
-    author_mail = "anujdangwal202gmail.com",
+    author_mail = "anujdangwal20gmail.com",
     install_packages = get_requirements("requirements.txt")
 )

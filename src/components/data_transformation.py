@@ -10,7 +10,7 @@ from sklearn.pipeline import Pipeline
 from src.constant import *
 from src.logger import logging
 from src.utils.main_utils import MainUtils
-from exception import Custom_exception
+from src.exception import CustomException
 from dataclasses import dataclass
 
 
@@ -20,7 +20,7 @@ class Datatransformationconfig():
     artifact_dir = os.path.join(artifact_folder)
     transformed_train_file_path = os.path.join(artifact_dir, "train.np")
     transformed_test_file_path =os.path.join(artifact_dir, "test.npy")
-    transformed_object_file_path = os.path.join(artifact_dir, "preproseccor.pkl")
+    transformed_object_file_path = os.path.join(artifact_dir, "preprocessor.pkl")
 
 class Datatransformartion:
     
@@ -31,7 +31,7 @@ class Datatransformartion:
         self.utils = MainUtils()
 
     @staticmethod
-    def get_data(self,feature_store_file_path: str)-> pd.DataFrame:
+    def get_data(feature_store_file_path: str)-> pd.DataFrame:
         
         try:
             data = pd.read_csv(feature_store_file_path)
@@ -40,25 +40,25 @@ class Datatransformartion:
 
             return data
         except Exception as e:
-            raise Custom_exception(e, sys)
+            raise CustomException(e, sys) from e
         
     def get_data_transformer_object(self):
 
         try:
 
-            imputer_step = ("imputer", SimpleImputer(strategy= "constant", fill_values = 0))
+            imputer_step = ("imputer", SimpleImputer(strategy= "constant"))
 
             scaler_step = ("scaler", RobustScaler())
 
             preprocessor = Pipeline(
-                step= [ imputer_step,
+                steps = [ imputer_step,
                        scaler_step]
             )
 
             return preprocessor
         
         except Exception as e:
-            raise Custom_exception(e, sys)
+            raise CustomException(e, sys)
         
     def initiate_data_transformation(self):
 
@@ -82,10 +82,10 @@ class Datatransformartion:
 
             self.utils.save_object(file_path= preprocessor_path, obj= preprocessor)
 
-            train_arr = np.c[x_train_scaled , np.array(y_train)]
-            test_arr = np.c[x_test_scaled ,np.array(y_test)]
+            train_arr = np.c_[x_train_scaled , np.array(y_train)]
+            test_arr = np.c_[x_test_scaled ,np.array(y_test)]
 
             return (train_arr, test_arr , preprocessor_path)
         
         except Exception as e:
-            raise Custom_exception(e,sys) from e
+            raise CustomException(e,sys) from e

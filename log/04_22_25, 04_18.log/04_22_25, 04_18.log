@@ -1,0 +1,23 @@
+[2025-04-22 04:18:25,450] 160 numexpr.utils - INFO NumExpr defaulting to 8 threads.
+[2025-04-22 04:18:29,923] 97 werkzeug - INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.7:5000
+[2025-04-22 04:18:29,923] 97 werkzeug - INFO [33mPress CTRL+C to quit[0m
+[2025-04-22 04:18:29,943] 97 werkzeug - INFO  * Restarting with watchdog (windowsapi)
+[2025-04-22 04:18:31,060] 160 numexpr.utils - INFO NumExpr defaulting to 8 threads.
+[2025-04-22 04:18:34,086] 97 werkzeug - WARNING  * Debugger is active!
+[2025-04-22 04:18:34,093] 97 werkzeug - INFO  * Debugger PIN: 515-084-624
+[2025-04-22 04:18:47,979] 97 werkzeug - INFO 127.0.0.1 - - [22/Apr/2025 04:18:47] "GET / HTTP/1.1" 200 -
+[2025-04-22 04:18:48,195] 97 werkzeug - INFO 127.0.0.1 - - [22/Apr/2025 04:18:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-04-22 04:18:59,164] 97 werkzeug - INFO 127.0.0.1 - - [22/Apr/2025 04:18:59] "GET / HTTP/1.1" 200 -
+[2025-04-22 04:19:08,297] 76 root - INFO Entered Initiated_data_ingestion method of data_ingestion class
+[2025-04-22 04:19:08,297] 51 root - INFO exporting our Data from mongodb
+[2025-04-22 04:19:08,881] 97 werkzeug - INFO  * Detected change in 'C:\\Users\\dangw\\anaconda3\\Lib\\site-packages\\pymongo\\pyopenssl_context.py', reloading
+[2025-04-22 04:19:09,839] 97 werkzeug - INFO  * Restarting with watchdog (windowsapi)
+[2025-04-22 04:19:17,077] 97 werkzeug - INFO  * Restarting with watchdog (windowsapi)
+[2025-04-22 04:19:23,213] 97 werkzeug - INFO  * Restarting with watchdog (windowsapi)
+[2025-04-22 04:22:56,794] 97 werkzeug - INFO  * Restarting with watchdog (windowsapi)
+[2025-04-22 04:25:10,171] 97 werkzeug - INFO  * Restarting with watchdog (windowsapi)
+[2025-04-22 04:28:34,212] 97 werkzeug - INFO  * Restarting with watchdog (windowsapi)
+[2025-04-22 04:31:27,891] 97 werkzeug - INFO  * Restarting with watchdog (windowsapi)

@@ -8,7 +8,7 @@ import pymongo
 from pymongo import MongoClient
 from zipfile import Path
 from src.constant import *
-from src.exception import Custom_exception
+from src.exception import CustomException
 from src.logger import logging
 from src.utils.main_utils import MainUtils
 from dataclasses import dataclass
@@ -40,7 +40,7 @@ class DataIngestion:
             return df
         
         except Exception as e:
-            raise Custom_exception(e , sys)
+            raise CustomException(e , sys)
         
 
         
@@ -68,7 +68,7 @@ class DataIngestion:
             return Feature_store_file_path
         
         except Exception as e:
-            raise Custom_exception(e ,sys)
+            raise CustomException(e ,sys)
 
 
     def Initiate_data_ingestion(self)-> Path:
@@ -76,7 +76,7 @@ class DataIngestion:
         logging.info("Entered Initiated_data_ingestion method of data_ingestion class")
 
         try:
-            feature_store_file_path = feature_store_file_path()
+            feature_store_file_path = self.Export_data_into_Feature_store_file_path()
 
             logging.info("got the data from mongodb")
         
@@ -85,4 +85,4 @@ class DataIngestion:
             return feature_store_file_path
         
         except Exception as e:
-            raise Custom_exception(e, sys) from e
+            raise CustomException(e, sys) from e

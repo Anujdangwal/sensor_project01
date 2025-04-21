@@ -1,0 +1,30 @@
+[2025-04-21 03:00:29,791] 224 werkzeug - WARNING  * Debugger is active!
+[2025-04-21 03:00:29,791] 224 werkzeug - INFO  * Debugger PIN: 319-645-086
+[2025-04-21 03:00:30,276] 76 root - INFO Entered Initiated_data_ingestion method of data_ingestion class
+[2025-04-21 03:00:30,276] 51 root - INFO exporting our Data from mongodb
+[2025-04-21 03:00:31,570] 62 root - INFO Saving Exported data into feature store file path : artifacts
+[2025-04-21 03:00:31,612] 81 root - INFO got the data from mongodb
+[2025-04-21 03:00:31,612] 83 root - INFO Exited initiate_data_ingestion methods of data ingestion class
+[2025-04-21 03:00:31,612] 65 root - INFO Entered initiate_data_transformation method of data transsformation class
+[2025-04-21 03:00:31,715] 49 root - INFO Entered the save_object method of MainUtils class
+[2025-04-21 03:00:31,719] 57 root - INFO Exited the save_object method of MainUtils class
+[2025-04-21 03:00:31,720] 190 root - INFO Splitting training and testing input and target feature
+[2025-04-21 03:00:31,720] 204 root - INFO Extracting model config file path
+[2025-04-21 03:00:31,720] 216 root - INFO Extracting model config file path
+[2025-04-21 03:01:24,484] 261 root - INFO Best found model on both training and testing dataset
+[2025-04-21 03:01:24,485] 268 root - INFO Saving model at path: artifacts\model.pkl
+[2025-04-21 03:01:24,485] 49 root - INFO Entered the save_object method of MainUtils class
+[2025-04-21 03:01:24,493] 57 root - INFO Exited the save_object method of MainUtils class
+[2025-04-21 03:01:24,494] 224 werkzeug - INFO 127.0.0.1 - - [21/Apr/2025 03:01:24] "GET /train HTTP/1.1" 200 -
+[2025-04-21 03:03:16,118] 224 werkzeug - INFO 127.0.0.1 - - [21/Apr/2025 03:03:16] "GET /predict HTTP/1.1" 200 -
+[2025-04-21 03:03:16,162] 224 werkzeug - INFO 127.0.0.1 - - [21/Apr/2025 03:03:16] "[33mGET /script.js HTTP/1.1[0m" 404 -
+[2025-04-21 03:03:16,163] 224 werkzeug - INFO 127.0.0.1 - - [21/Apr/2025 03:03:16] "GET /static/css/style.css HTTP/1.1" 200 -
+[2025-04-21 03:05:36,375] 224 werkzeug - INFO 127.0.0.1 - - [21/Apr/2025 03:05:36] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+[2025-04-21 03:05:43,868] 224 werkzeug - INFO 127.0.0.1 - - [21/Apr/2025 03:05:43] "GET /predict HTTP/1.1" 200 -
+[2025-04-21 03:05:43,923] 224 werkzeug - INFO 127.0.0.1 - - [21/Apr/2025 03:05:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+[2025-04-21 03:05:44,231] 224 werkzeug - INFO 127.0.0.1 - - [21/Apr/2025 03:05:44] "[33mGET /script.js HTTP/1.1[0m" 404 -
+[2025-04-21 03:06:17,416] 224 werkzeug - INFO 127.0.0.1 - - [21/Apr/2025 03:06:17] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+[2025-04-21 03:06:24,664] 224 werkzeug - INFO 127.0.0.1 - - [21/Apr/2025 03:06:24] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+[2025-04-21 03:06:24,715] 224 werkzeug - INFO 127.0.0.1 - - [21/Apr/2025 03:06:24] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+[2025-04-21 03:06:25,075] 224 werkzeug - INFO 127.0.0.1 - - [21/Apr/2025 03:06:25] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+[2025-04-21 03:07:53,881] 224 werkzeug - INFO  * Detected change in 'E:\\projects\\senssor fault detection\\src\\pipeline\\prediction_pipeline.py', reloading
