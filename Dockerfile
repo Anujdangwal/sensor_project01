@@ -23,4 +23,4 @@ RUN pip install --upgrade pip && \
 
 COPY . .
 
-CMD ["gunicorn", "app:app"]
+CMD ["python", "-c", "import app"]
