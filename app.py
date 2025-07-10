@@ -13,7 +13,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Welcome to my application"
+    return """
+    <h1>Welcome to my application</h1>
+    <ul>
+        <li><a href="/train">Train Model</a></li>
+        <li><a href="/predict">Upload Data for Prediction</a></li>
+    </ul>
+    """
+
 
 
 
