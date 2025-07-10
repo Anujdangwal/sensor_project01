@@ -22,4 +22,5 @@ ensure==1.0.4
 evidently==0.1.58.dev0
 exceptiongroup==1.2.2
 executing==2.2.0
+PyYAML==5.4.1
 # -e 
