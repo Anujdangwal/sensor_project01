@@ -6,7 +6,7 @@ HYPEN_E_DOT = "-e."
 def get_requirements(file_path:str)->List[str]:
     requirements =[]
     with open(file_path) as file_object:
-        reuirements = file_object.readlines()
+        requirements = file_object.readlines()
         requirements = [req.replace("\n"," ") for req in requirements]
 
     if HYPEN_E_DOT in get_requirements:
