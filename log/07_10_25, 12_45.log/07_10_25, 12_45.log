@@ -1,0 +1,13 @@
+[2025-07-10 12:45:21,250] 224 werkzeug - INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.10:5000
+[2025-07-10 12:45:21,250] 224 werkzeug - INFO [33mPress CTRL+C to quit[0m
+[2025-07-10 12:45:21,254] 224 werkzeug - INFO  * Restarting with stat
+[2025-07-10 12:45:25,559] 224 werkzeug - WARNING  * Debugger is active!
+[2025-07-10 12:45:25,569] 224 werkzeug - INFO  * Debugger PIN: 319-645-086
+[2025-07-10 12:45:35,173] 224 werkzeug - INFO 127.0.0.1 - - [10/Jul/2025 12:45:35] "GET / HTTP/1.1" 200 -
+[2025-07-10 12:45:35,276] 224 werkzeug - INFO 127.0.0.1 - - [10/Jul/2025 12:45:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-07-10 12:45:41,183] 224 werkzeug - INFO 127.0.0.1 - - [10/Jul/2025 12:45:41] "GET /predict HTTP/1.1" 200 -
+[2025-07-10 12:45:41,254] 224 werkzeug - INFO 127.0.0.1 - - [10/Jul/2025 12:45:41] "[33mGET /script.js HTTP/1.1[0m" 404 -
+[2025-07-10 12:45:41,255] 224 werkzeug - INFO 127.0.0.1 - - [10/Jul/2025 12:45:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -

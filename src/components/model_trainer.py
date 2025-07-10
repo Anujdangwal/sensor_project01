@@ -278,7 +278,7 @@ class ModelTrainer:
                 obj=best_model
             )
            
-            return self.model_trainer_config.trained_model_path
+            return best_model_score
 
 
            
