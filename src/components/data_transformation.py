@@ -1,52 +1,91 @@
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from src.logger import logging
-from src.exception import CustomException
 import os
 import sys
+import pandas as pd
+import numpy as np
+from sklearn.impute import SimpleImputer
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import robust_scale ,FunctionTransformer, RobustScaler
+from sklearn.pipeline import Pipeline
 
-class ImageDataPipeline:
-    def __init__(self, image_dir, target_size=(256, 256), batch_size=32):
-        self.image_dir = image_dir
-        self.target_size = target_size
-        self.batch_size = batch_size
+from src.constant import *
+from src.logger import logging
+from src.utils.main_utils import MainUtils
+from src.exception import CustomException
+from dataclasses import dataclass
 
-        self.train_datagen = ImageDataGenerator(
-            rescale=1.0 / 255,
-            validation_split=0.2,
-            rotation_range=15,
-            zoom_range=0.1,
-            width_shift_range=0.1,
-            height_shift_range=0.1,
-            shear_range=0.1,
-            horizontal_flip=True,
-        )
 
-    def get_generators(self):
+@dataclass
+class Datatransformationconfig():
+
+    artifact_dir = os.path.join(artifact_folder)
+    transformed_train_file_path = os.path.join(artifact_dir, "train.np")
+    transformed_test_file_path =os.path.join(artifact_dir, "test.npy")
+    transformed_object_file_path = os.path.join(artifact_dir, "preprocessor.pkl")
+
+class Datatransformartion:
+    
+    def __init__(self, feature_store_file_path):
+        self.feature_store_file_path = feature_store_file_path
+
+        self.Data_transformation_config = Datatransformationconfig()
+        self.utils = MainUtils()
+
+    @staticmethod
+    def get_data(feature_store_file_path: str)-> pd.DataFrame:
+        
         try:
-            logging.info("Preparing training and validation generators...")
+            data = pd.read_csv(feature_store_file_path)
 
-            train_generator = self.train_datagen.flow_from_directory(
-                self.image_dir,
-                target_size=self.target_size,
-                batch_size=self.batch_size,
-                class_mode='categorical',
-                subset='training',
-                shuffle=True,
-                seed=42
-            )
+            data.rename(columns= {"Good/Bad" : TARGET_COLUMN} , inplace=True)
 
-            val_generator = self.train_datagen.flow_from_directory(
-                self.image_dir,
-                target_size=self.target_size,
-                batch_size=self.batch_size,
-                class_mode='categorical',
-                subset='validation',
-                shuffle=False,
-                seed=42
-            )
-
-            return train_generator, val_generator
-
+            return data
         except Exception as e:
-            logging.error("Error while creating image data generators", exc_info=True)
+            raise CustomException(e, sys) from e
+        
+    def get_data_transformer_object(self):
+
+        try:
+
+            imputer_step = ("imputer", SimpleImputer(strategy= "constant"))
+
+            scaler_step = ("scaler", RobustScaler())
+
+            preprocessor = Pipeline(
+                steps = [ imputer_step,
+                       scaler_step]
+            )
+
+            return preprocessor
+        
+        except Exception as e:
             raise CustomException(e, sys)
+        
+    def initiate_data_transformation(self):
+
+        logging.info("Entered initiate_data_transformation method of data transsformation class")
+
+        try:
+            dataframe = self.get_data(feature_store_file_path= self.feature_store_file_path)
+            
+            x = dataframe.drop(columns = TARGET_COLUMN )
+            y = np.where(dataframe[TARGET_COLUMN]== -1,0,1)
+
+            x_train, x_test, y_train, y_test = train_test_split(x , y, test_size= 0.2)
+
+            preprocessor = self.get_data_transformer_object()
+
+            x_train_scaled = preprocessor.fit_transform(x_train)
+            x_test_scaled = preprocessor.transform(x_test)
+
+            preprocessor_path = self.Data_transformation_config.transformed_object_file_path
+            os.makedirs(os.path.dirname(preprocessor_path), exist_ok=True)
+
+            self.utils.save_object(file_path= preprocessor_path, obj= preprocessor)
+
+            train_arr = np.c_[x_train_scaled , np.array(y_train)]
+            test_arr = np.c_[x_test_scaled ,np.array(y_test)]
+
+            return (train_arr, test_arr , preprocessor_path)
+        
+        except Exception as e:
+            raise CustomException(e,sys) from e

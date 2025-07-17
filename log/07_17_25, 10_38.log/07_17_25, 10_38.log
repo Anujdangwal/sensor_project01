@@ -1,0 +1,26 @@
+[2025-07-17 10:38:32,693] 97 werkzeug - INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.10:5000
+[2025-07-17 10:38:32,693] 97 werkzeug - INFO [33mPress CTRL+C to quit[0m
+[2025-07-17 10:38:32,693] 97 werkzeug - INFO  * Restarting with stat
+[2025-07-17 10:38:35,917] 97 werkzeug - WARNING  * Debugger is active!
+[2025-07-17 10:38:35,986] 97 werkzeug - INFO  * Debugger PIN: 927-644-460
+[2025-07-17 10:38:40,411] 97 werkzeug - INFO 127.0.0.1 - - [17/Jul/2025 10:38:40] "GET / HTTP/1.1" 200 -
+[2025-07-17 10:38:41,432] 97 werkzeug - INFO 127.0.0.1 - - [17/Jul/2025 10:38:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-07-17 10:38:44,268] 76 root - INFO Entered Initiated_data_ingestion method of data_ingestion class
+[2025-07-17 10:38:44,268] 51 root - INFO exporting our Data from mongodb
+[2025-07-17 10:38:46,674] 62 root - INFO Saving Exported data into feature store file path : artifacts
+[2025-07-17 10:38:46,917] 81 root - INFO got the data from mongodb
+[2025-07-17 10:38:46,917] 83 root - INFO Exited initiate_data_ingestion methods of data ingestion class
+[2025-07-17 10:38:46,917] 65 root - INFO Entered initiate_data_transformation method of data transsformation class
+[2025-07-17 10:38:47,264] 49 root - INFO Entered the save_object method of MainUtils class
+[2025-07-17 10:38:47,278] 57 root - INFO Exited the save_object method of MainUtils class
+[2025-07-17 10:38:47,280] 190 root - INFO Splitting training and testing input and target feature
+[2025-07-17 10:38:47,280] 204 root - INFO Extracting model config file path
+[2025-07-17 10:38:47,280] 216 root - INFO Extracting model config file path
+[2025-07-17 10:39:49,270] 261 root - INFO Best found model on both training and testing dataset
+[2025-07-17 10:39:49,270] 268 root - INFO Saving model at path: artifacts\model.pkl
+[2025-07-17 10:39:49,274] 49 root - INFO Entered the save_object method of MainUtils class
+[2025-07-17 10:39:49,281] 57 root - INFO Exited the save_object method of MainUtils class
+[2025-07-17 10:39:49,294] 97 werkzeug - INFO 127.0.0.1 - - [17/Jul/2025 10:39:49] "GET /train HTTP/1.1" 200 -
