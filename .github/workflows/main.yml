@@ -1,40 +1,40 @@
-name: workflow
+  name: workflow
 
-on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'README.md'
+  on:
+    push:
+      branches:
+        - main
+      paths-ignore:
+        - 'README.md'
 
-permissions:
-  contents: read
+  permissions:
+    contents: read
 
-jobs:
-  integration:
-    name: Continuous Integration
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+  jobs:
+    integration:
+      name: Continuous Integration
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout Code
+          uses: actions/checkout@v3
 
-      - name: Lint code
-        run: echo "Linting repository"
+        - name: Lint code
+          run: echo "Linting repository"
 
-      - name: Run unit tests
-        run: echo "Running unit tests"
+        - name: Run unit tests
+          run: echo "Running unit tests"
 
-  deploy-to-render:
-    name: Continuous Deployment to Render
-    needs: integration
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+    deploy-to-render:
+      name: Continuous Deployment to Render
+      needs: integration
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout Code
+          uses: actions/checkout@v3
 
-      - name: Deploy to Render via Deploy Hook
-        env:
-          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
-        run: |
-          echo "Triggering Render Deploy Hook..."
-          curl -X POST $RENDER_DEPLOY_HOOK_URL
+        - name: Deploy to Render via Deploy Hook
+          env:
+            RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+          run: |
+            echo "Triggering Render Deploy Hook..."
+            curl -X POST $RENDER_DEPLOY_HOOK_URL

@@ -1,9 +1,0 @@
-[2025-07-10 14:48:19,052] 224 werkzeug - WARNING  * Debugger is active!
-[2025-07-10 14:48:19,060] 224 werkzeug - INFO  * Debugger PIN: 319-645-086
-[2025-07-10 14:48:19,345] 224 werkzeug - INFO 127.0.0.1 - - [10/Jul/2025 14:48:19] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
-[2025-07-10 14:48:19,649] 224 werkzeug - INFO 127.0.0.1 - - [10/Jul/2025 14:48:19] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
-[2025-07-10 14:48:19,692] 224 werkzeug - INFO 127.0.0.1 - - [10/Jul/2025 14:48:19] "[36mGET /predict?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
-[2025-07-10 14:48:19,698] 224 werkzeug - INFO 127.0.0.1 - - [10/Jul/2025 14:48:19] "[36mGET /predict?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
-[2025-07-10 14:48:19,729] 224 werkzeug - INFO 127.0.0.1 - - [10/Jul/2025 14:48:19] "[36mGET /predict?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
-[2025-07-10 14:48:19,890] 224 werkzeug - INFO 127.0.0.1 - - [10/Jul/2025 14:48:19] "[36mGET /predict?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
-[2025-07-10 14:49:03,726] 224 werkzeug - INFO  * Detected change in 'E:\\projects\\senssor fault detection\\src\\pipeline\\prediction_pipeline.py', reloading
