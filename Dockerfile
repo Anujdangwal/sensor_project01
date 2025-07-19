@@ -12,7 +12,7 @@ RUN apt-get update && \
         libssl-dev \
         libyaml-dev \
         python3-dev \
-        cython && \
+        cython3 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
